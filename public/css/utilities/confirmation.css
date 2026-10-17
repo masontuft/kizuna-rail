@@ -405,15 +405,223 @@ article.confirmation-page {
     }
 }
 
+@page {
+    size: letter portrait;
+    margin: 0.18in;
+}
+
 @media print {
+    html,
+    body {
+        height: auto !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #fff !important;
+        color: #000 !important;
+    }
+
+    header,
+    footer,
+    .confirmation-actions,
+    .confirmation-message,
+    .success-icon,
+    .next-steps,
+    .important-info {
+        display: none !important;
+    }
+
+    main.content-grid {
+        display: block !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
     article.confirmation-page {
-        .confirmation-actions {
-            display: none;
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 7pt;
+        line-height: 1.05;
+    }
+
+    .confirmation-page,
+    .confirmation-page * {
+        box-sizing: border-box;
+    }
+
+    .confirmation-header {
+        gap: 2pt;
+        margin-bottom: 3pt;
+        padding: 3pt;
+        border: 1px solid #000;
+        border-radius: 0;
+        background: #fff !important;
+
+        .confirmation-title {
+            font-size: 11pt;
+            line-height: 1.1;
         }
 
-        .confirmation-header {
-            background-color: white;
-            border: 2px solid var(--clr-primary);
+        .confirmation-message {
+            max-width: none;
+            font-size: 7pt;
+            line-height: 1.05;
+        }
+
+        .booking-reference {
+            flex-direction: row;
+            gap: 4pt;
+            margin-top: 0;
+            padding: 2pt 4pt;
+            border-radius: 0;
+            background: #fff;
+
+            .reference-number {
+                font-size: 8pt;
+            }
+        }
+    }
+
+    .confirmation-content {
+        gap: 3pt;
+
+        .section-title {
+            margin: 0 0 2pt;
+            padding-bottom: 1pt;
+            border-bottom-width: 1px;
+            font-size: 8pt;
+            line-height: 1.1;
+        }
+
+        .booking-details {
+            .details-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 2pt;
+            }
+
+            .detail-card {
+                gap: 2pt;
+                min-width: 0;
+                padding: 2pt;
+                border-radius: 0;
+                background: #fff !important;
+                box-shadow: none;
+
+                .detail-icon {
+                    display: none;
+                }
+
+                .detail-label {
+                    font-size: 5pt;
+                }
+
+                .detail-value {
+                    font-size: 7pt;
+                }
+            }
+        }
+
+        .passengers-info {
+            .passengers-list {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 2pt;
+
+                .passenger-info-card {
+                    break-inside: avoid;
+                    page-break-inside: avoid;
+                    border-radius: 0;
+                    background: #fff !important;
+                    box-shadow: none;
+
+                    .passenger-header {
+                        padding: 2pt 3pt;
+                        background: #fff !important;
+                    }
+
+                    .passenger-details {
+                        display: grid;
+                        grid-template-columns: repeat(3, minmax(0, 1fr));
+                        gap: 2pt;
+                        padding: 2pt;
+
+                        .passenger-detail {
+                            min-width: 0;
+                            gap: 1pt;
+                        }
+
+                        .passenger-label {
+                            font-size: 5pt;
+                        }
+
+                        .passenger-value {
+                            overflow-wrap: anywhere;
+                            font-size: 6.5pt;
+                        }
+                    }
+                }
+            }
+        }
+
+        .next-steps {
+            .steps-list {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 2pt 4pt;
+            }
+
+            .step-item {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                gap: 2pt;
+            }
+
+            .step-number {
+                width: 12pt;
+                height: 12pt;
+                font-size: 6pt;
+            }
+
+            .step-content {
+                padding-top: 0;
+            }
+
+            .step-title {
+                margin: 0;
+                font-size: 7pt;
+            }
+
+            .step-description {
+                font-size: 6pt;
+                line-height: 1.05;
+            }
+        }
+
+        .important-info {
+            break-inside: avoid;
+            page-break-inside: avoid;
+            padding: 3pt;
+            border-radius: 0;
+            background: #fff !important;
+
+            .info-title {
+                margin: 0 0 2pt;
+                font-size: 7pt;
+            }
+
+            .info-list {
+                gap: 1pt;
+
+                li {
+                    padding-left: 8pt;
+                    font-size: 6pt;
+                    line-height: 1.05;
+                }
+            }
         }
     }
 }
