@@ -1,3 +1,29 @@
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+#filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-lg);
+    margin-block: var(--space-lg);
+}
+
+.filter-group label {
+    margin-bottom: 0;
+}
+
+@media (max-width: 40rem) {
+    #filters,
+    .filter-group {
+        align-items: stretch;
+        flex-direction: column;
+    }
+}
+
 .routes-grid {
     display: flex;
     flex-direction: column;
